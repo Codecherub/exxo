@@ -1,4 +1,4 @@
-const serverURL = 'http://192.168.173.1/exxo/app.php'; //default server Url
+const serverURL = 'http://go-exxo.mygamesonline.org/app.php'; //default server Url
 localStorage.removeItem('winStatus')
 // toast alert class
 class toast {
