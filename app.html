@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<title>exxo tictactoe multiplayer</title>
+<meta name="viewport" content="width=device-width">
+<meta property="og:title" content="exxo ">
+<meta property="og:description" content="simple multiplayer tictactoe built with html and jQuery">
+<meta property="og:image" content="http://">
+<meta property="og:url" content="https://github.com/CodeCherub/exxo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="animate.css">
+<link rel="stylesheet" href="./feather/iconfont.css">
+<script>if(window.innerWidth > 500){location.assign('index.html')}</script>
+<body>
+  
+    <img class="animated fadeIn " src="./slider/birds1.png">
+    <img class="animated fadeIn " src="./slider/birds2.png">
+    <img class="animated  " src="./slider/hill.png">
+    <img class="animated pulse infinite" src="./slider/sun.png">
+    <!-- game mode selection -->
+    <section class="tab activeX " id='tab0'>
+        <div class="cont">
+            <p class="Name animated pulse infinite">e<span class='tt'>x</span>x<span class='tt'>o</span></p>
+            <div class="pills to vsCom" data-to="format" >vs Computer</div>
+            <div class="pills to" data-to="multi">Multiplayer</div>
+        </div>
+    </section> 
+    <!-- game piece selector vs computer -->
+    <section class="tab  " id='tabformat'>
+        <span class="feather icon-arrow-left to bcktn" data-to=0></span>
+        <div class="cont">
+            <p class="">SELECT YOUR PIECE</p>
+            <div class="pills to formart" data-form="x" data-to="3" >play as x</div>
+            <div class="pills to red formart" data-form="o"  data-to="3" >play as o</div>
+        </div>
+    </section>
+    <!-- game piece selector vs multiplayer -->
+    <section class="tab  " id='tabformat1'>
+        <span class="feather icon-arrow-left to bcktn" data-to=multi></span>
+        <div class="cont">
+            <p class="">SELECT YOUR PIECE</p>
+            <div class="pills formart startGame to" data-form="x"  data-to="multi" >play as x</div>
+            <div class="pills to red startGame formart" data-form="o"  data-to="multi" >play as o</div>
+        </div>
+    </section>
+    <!-- multiplayer option page -->
+    <section class="tab  " id='tabmulti'>
+        <span class="feather icon-arrow-left to bcktn" data-to=0></span>
+        <div class="cont">
+            <h1 class=""> MULTIPLAYER</h1>
+            <div class="pills  to " data-to="format1"  >  Host a challenge</div>
+            <p>or</p>
+            <div class="pills joinGame red " > Join a game</div>
+        </div>
+    </section>
+    <!-- create user id -->
+    <section class="tab" id='tab1'>
+        <div class="cont">
+            <p class="Name">e<span class='tt'>X</span>x<span class='tt'>0</span></p>
+            <form id=startUP>
+            <input id=namer name="name"  placeholder="UserName">
+            <button type="submit" class="pills ">get started</button>
+            </form>
+        </div>
+    </section>
+    <!-- main gameBox -->
+    <section class="tab" id='tab3'>
+        <span class="feather icon-x to bcktn" data-to=multi></span>
+    <div class="pill"> vs. <span class=opp></span></div>
+    <!-- <img src="./slider/house.png"> -->
+        <div class="ltxt">
+           exxo
+        </div>
+    
+        <div class="con">
+            <div class="row">
+                <div class="col">
+                    <div class="app" data-val='' id='1'></div>
+                    <div class="app" data-val='' id='4'></div>
+                    <div class="app" data-val='' id='7'></div>
+                    
+                </div>
+                <div class="col">
+                    <div class="app" data-val='' id='2'></div>
+                    <div class="app" data-val='' id='5'></div>
+                    <div class="app" data-val='' id='8'></div>
+                </div>
+                <div class="col">
+                    <div class="app" data-val='' id='3'></div>
+                    <div class="app" data-val='' id='6'></div>
+                    <div class="app" data-val='' id='9'></div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <script src="jq.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
