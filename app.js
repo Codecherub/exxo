@@ -159,9 +159,6 @@ function playgame(data, player) {
     //CHECK IF ALL BOXES ARE PLAYED
     sessionStorage.setItem('itemPlay', sessionStorage.getItem('itemPlay') + '1')
 
-
-
-
 }
 
 function computerResponse(data) {
@@ -328,26 +325,22 @@ $('.startGame').click(function () {
     localStorage.setItem('gameMode', 'multi');
     localStorage.setItem('gameID', gameId);
     $('body').append('<div class="overlay animated fadeIn"><div class=cont><p>game id:</p><p class="Name tw">' + gameId + '<div id=qt class="pills animated pulse infinite"><i class="feather  icon-radio"> </i><span id=ft> setting stuff up. . </span></div></p></div></div>')
-    $.ajax({
-            url: serverURL,
-            type: 'POST',
-            data: 'newGame=1&gameID=' + gameId + '&gameHost=' + getFromStorage('userID') + '&gameForm=' + getFromStorage('form') + '&startTone=' + startTone
-        })
-        .done(function (res) {
-            data = JSON.parse(res)
-            console.log(data)
-            if (data.action[0] === 'fail') {
-                $('#qt').addClass('red');
-            } else {
-                $('#qt').addClass('sux');
-            }
+    $.post(serverURL+'?newGame=1&gameID=' + gameId + '&gameHost=' + getFromStorage('userID') + '&gameForm=' + getFromStorage('form') + '&startTone=' + startTone).done(function (res) {
+        data = JSON.parse(res)
+        console.log(data)
+        if (data.action[0] === 'fail') {
+            $('#qt').addClass('red');
+        } else {
+            $('#qt').addClass('sux');
+        }
 
-            $('#ft').html(data.msg)
-        })
-        .fail(function () {
-            $('body').append('<div class=overlay></div>')
-            new toast('red', 'failed to Host game- pls check internet connection', 10)
-        })
+        $('#ft').html(data.msg)
+    })
+    .fail(function () {
+        $('body').append('<div class=overlay></div>')
+        new toast('red', 'failed to Host game- pls check internet connection', 10)
+    })
+ 
 
     listen('host')
 
