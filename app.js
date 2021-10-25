@@ -137,6 +137,7 @@ function playgame(data, player) {
         $.ajax({
                 url: serverURL,
                 type: 'POST',
+                dataType: "jsonp",
                 data: 'play=' + player + '&app=' + data + '&gameID=' + getFromStorage('gameID') + '&newtone=' + newtone
             })
             .done(function (res) {
